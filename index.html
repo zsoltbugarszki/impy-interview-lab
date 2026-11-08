@@ -358,7 +358,7 @@ function wireFoot(){
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
 function fresh(){return {v:1,step:'intro',round:0,order:[],picks:[],got:[],answered:false}}
 function load(){try{var s=JSON.parse(localStorage.getItem(KEY));return s&&s.v===1?s:null}catch(e){return null}}
-var S=load()||fresh();
+var S=fresh();
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));localStorage.setItem('impy_interview_lines',JSON.stringify({role:IV.roleId,lines:S.got.slice().sort(function(a,b){return a-b}).map(function(i){return TR[i]})}))}catch(e){}}
 function ordFor(r){
  // open option must not always sit in the same place: avoid last position of previous round
